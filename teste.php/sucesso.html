@@ -6,22 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-        font-family: Arial, sans-serif;
-
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+        }
+        input[type=submit] {
+            background-color: #007bff;
+            color: white;
+            padding: 14px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #0069d9;
         }
         .container {
             margin-top: 50px;
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
-            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
         }
         h1 {
+            text-align: center;
             font-size: 28px;
             margin-bottom: 30px;
+            color: #007bff;
         }
-        p {
-            font-size: 18px;
+        p a{
+            text-align: center;
+            text-decoration: dashed;
+        }
+        p{
+            text-align: center;
         }
     </style>
 </head>
@@ -29,6 +67,7 @@
     <div class="container">
         <h1>Cadastro Bem-Sucedido</h1>
         <p>O usuário foi cadastrado com sucesso.</p>
+        <p><a href="teste.html">Voltar para o cadastro</a></p>
     </div>
 </body>
 </html>
