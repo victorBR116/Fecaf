@@ -9,10 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $usuarios = json_decode(file_get_contents('usuarios.json'), true);
     }
     if (isset($usuarios[$username])) {
-        echo "Usuário já cadastrado.";
+        header('Location: negado.html');     
+          
+        exit();
     } else {
         $usuarios[$username] = array('senha' => $password);
         file_put_contents('usuarios.json', json_encode($usuarios));
-        echo "Usuário cadastrado com sucesso.";
+        header('Location: sucesso.html');
+        
+        exit();
     }
 }
