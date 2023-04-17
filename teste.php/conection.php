@@ -14,7 +14,7 @@ while (true) {
 
     echo "Mensagem recebida: $message" . PHP_EOL;
 
-    $response = "Olá, cliente!";
+    $response = "Alo ta online";
     socket_write($client, $response, strlen($response));
 
     socket_close($client);
