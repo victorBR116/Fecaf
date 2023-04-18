@@ -1,5 +1,7 @@
 <?php
 
+require_once 'validacao.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $username = $_POST['username'];
@@ -14,6 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           
         exit();
     } else {
+        $validator = new Validador();
+        if (!$validator->isValid($password)) {
+            header('Location: senha-invalida.html');
+            exit();
+        }
         $usuarios[$username] = array('senha' => $password);
         file_put_contents('usuarios.json', json_encode($usuarios));
         header('Location: sucesso.html');
