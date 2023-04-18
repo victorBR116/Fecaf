@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $usuarios = json_decode(file_get_contents('usuarios.json'), true);
     }
     if (isset($usuarios[$username])) {
-        header('Location: negado.html');     
+        header('Location: negado.php');     
           
         exit();
     } else {
