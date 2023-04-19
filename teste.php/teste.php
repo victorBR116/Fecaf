@@ -27,4 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         exit();
     }
+    $validator = new Validador();
+    if (!$validator->isValidUsername($username)) {
+    header('Location: usuarioInvalido.html');
+    exit();
+}
+
 }
