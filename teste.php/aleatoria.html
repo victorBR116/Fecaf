@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gerador de senha aleatória</title>
+</head>
+<body>
+	<div>
+		<h1>Gerador de senha aleatória</h1>
+		<p>Clique no botão abaixo para gerar uma senha aleatória:</p>
+		<button onclick="gerarSenha()">Gerar senha</button>
+		<p>A senha gerada é: <span id="senha"></span></p>
+	</div>
+
+	<script>
+		function gerarSenha() {
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("senha").innerHTML = this.responseText;
+				}
+			};
+			xhr.open("GET", "aleatoria.php", true);
+			xhr.send();
+		}
+	</script>
+</body>
+</html>

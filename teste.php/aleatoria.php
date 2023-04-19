@@ -1,7 +1,5 @@
 <?php
 
-use Aleatoria as GlobalAleatoria;
-
 class Aleatoria{
   public static function gerarSenha($tamanho = 12) {
       $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+{}[]<>?';
