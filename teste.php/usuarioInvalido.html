@@ -76,24 +76,25 @@
         }
     </style>
 </head>
-<body onload="gerarSenha()">
+<body onload="gerarUsuario()">
     <div class="container">
         <h1>Usuário inválido</h1>
         <p>Não foi possível cadastrar o usuário</p>
-        <p>Tente talvez: <span id="senha"> mas não conte pra ninguém!</span></p>
+        <p>Tente talvez: <span id="usuário"> mas não conte pra ninguém!</span></p>
         <p><a href="teste.html">Voltar para o cadastro</a></p>
     </div>
     <script>
-        function gerarSenha() {
+        function gerarUsuario() {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("senha").innerHTML = this.responseText;
+                    document.getElementById("usuario").innerHTML = this.responseText;
                 }
             };
             xhr.open("GET", "aleatoria.php", true);
             xhr.send();
         }
+
+        gerarUsuario();
     </script>
-</body>
 </html>
