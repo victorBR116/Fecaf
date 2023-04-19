@@ -1,36 +1,37 @@
-import re
-#validador usando regex
-def valida_cpf(cpf: str) -> bool:
-    # Remove pontos e traços do CPF
-    cpf = re.sub(r'[^\d]+', '', cpf)
+def valida_cpf(cpf):
+    cpf = cpf.replace(".", "").replace("-", "") 
     
-    # Verifica se o CPF possui 11 dígitos numéricos
-    if len(cpf) != 11:
+    if len(cpf) != 11 or not cpf.isdigit(): 
         return False
     
-    # Verifica se todos os dígitos são iguais
-    if len(set(cpf)) == 1:
-        return False
-    
-    # Verifica se os dois dígitos verificadores estão corretos
+    # Calcula o primeiro dígito verificador
     soma = 0
-    for i, v in enumerate(cpf[:9]):
-        soma += int(v) * (10 - i)
-    digito1 = (soma * 10) % 11 % 10
-    if cpf[9] != str(digito1):
-        return False
-    soma = 0
-    for i, v in enumerate(cpf[:10]):
-        soma += int(v) * (11 - i)
-    digito2 = (soma * 10) % 11 % 10
-    if cpf[10] != str(digito2):
-        return False
+    for i in range(9):
+        soma += int(cpf[i]) * (10 - i)
+    resto = soma % 11
+    if resto < 2:
+        digito1 = 0
+    else:
+        digito1 = 11 - resto
     
-    # CPF válido
-    return True
+    # Calcula o segundo dígito verificador
+    soma = 0
+    for i in range(10):
+        soma += int(cpf[i]) * (11 - i)
+    resto = soma % 11
+    if resto < 2:
+        digito2 = 0
+    else:
+        digito2 = 11 - resto
+        
+    # Verifica se os dígitos verificadores são iguais aos do CPF informado
+    if cpf[-2:] == str(digito1) + str(digito2):
+        return True
+    else:
+        return False
 
-cpf = "113.747.448-32"
+cpf = input("Digite o CPF: ")
 if valida_cpf(cpf):
-    print(f"O CPF {cpf} é válido!")
+    print("CPF válido!")
 else:
-    print(f"O CPF {cpf} é inválido!")
+    print("CPF inválido!")
