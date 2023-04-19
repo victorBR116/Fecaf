@@ -56,18 +56,44 @@
         }
         p {
             text-align: center;
-            
+            color: #555555;
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
         }
         p a {
-            text-decoration: dashed;
+            color: #007bff;
+            text-decoration: none;
+            border-bottom: 1px dashed #007bff;
+            padding-bottom: 2px;
+        }
+        #senha {
+            font-size: 22px;
+            font-weight: bold;
+            color: #007bff;
+            letter-spacing: 1px;
+            word-spacing: 2px;
         }
     </style>
 </head>
-<body>
+<body onload="gerarSenha()">
     <div class="container">
         <h1>Senha inválida</h1>
-        <p>Não foi possivel cadastrar a sua senha</p>
+        <p>Não foi possível cadastrar a sua senha</p>
+        <p>Tente talvez: <span id="senha"> mas não conte pra ninguém!</span></p>
         <p><a href="teste.html">Voltar para o cadastro</a></p>
     </div>
+    <script>
+        function gerarSenha() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("senha").innerHTML = this.responseText;
+                }
+            };
+            xhr.open("GET", "aleatoria.php", true);
+            xhr.send();
+        }
+    </script>
 </body>
 </html>
