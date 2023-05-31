@@ -1,4 +1,4 @@
-valor_mercadoria = float(input("alor da mercadoria: R$ "))
+valor_mercadoria = float(input("Valor da mercadoria: R$ "))
 valor_pago = float(input("Valor pago: R$ "))
 
 troco = valor_pago - valor_mercadoria
