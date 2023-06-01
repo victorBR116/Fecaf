@@ -18,7 +18,7 @@ else:
         0.01: 0
     }
 
-    while valor in notas_moedas.keys():
+    for valor in notas_moedas.keys():
         while troco >= valor:
             notas_moedas[valor] += 1
             troco -= valor
