@@ -1,7 +1,7 @@
 import math
 
 # Lendo os valores de entrada
-raio = float(input("Digite o valor do raio do cilindro em cm: "))
+raio = float(input("digite o valor do raio do cilindro em cm: "))
 altura = float(input("Digite o valor da altura do cilindro em cm: "))
 
 # Calculando a área da base
