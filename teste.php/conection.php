@@ -13,6 +13,6 @@ while ($client = stream_socket_accept($server)) {
     fwrite($client, $response);
     fclose($client);
 }
-//att
+
 fclose($server);
     
