@@ -1,5 +1,5 @@
 <?php
-// criando conexão bd mysql
+// criando conexão bd mysql teste git
 $server = stream_socket_server("tcp://0.0.0.0:8080", $errno, $errstr);
 
 if (!$server) {
