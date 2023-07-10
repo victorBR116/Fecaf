@@ -1,5 +1,5 @@
 <?php
-
+//teste 
 require_once 'validacao.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
